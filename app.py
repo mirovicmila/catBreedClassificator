@@ -17,7 +17,6 @@ st.write("""
 
 file = st.file_uploader("Please upload an image", type=["jpg", "png"])
 
-import cv2
 from PIL import Image, ImageOps
 import numpy as np
 
