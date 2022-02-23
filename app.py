@@ -3,7 +3,7 @@ import tensorflow as tf
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-  model=tf.keras.models.load_model('/content/cat-breeds-model-augment.hdf5')
+  model=tf.keras.models.load_model('cat-breeds-model-augment.hdf5')
   return model
 
 
