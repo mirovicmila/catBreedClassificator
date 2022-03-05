@@ -20,9 +20,14 @@ file = st.file_uploader("Please upload an image", type=["jpg", "png"])
 from PIL import Image, ImageOps
 import numpy as np
 
-st.sidebar.header('About')
-logo_url = "https://streamlit.io/images/brand/streamlit-mark-color.svg"
+st.sidebar.header('About cat breeds')
+logo_url = "https://i.imgur.com/qVsr9bW.png"
 st.sidebar.image(logo_url, width=100)
+st.sidebar.write("[British shorthair cat](https://www.dailypaws.com/cats-kittens/cat-breeds/british-shorthair)")
+st.sidebar.write("[Scottish fold cat](https://en.wikipedia.org/wiki/Scottish_Fold)")
+st.sidebar.write("[Bengal cat](https://cattime.com/cat-breeds/bengal-cats)")
+st.sidebar.write("[Maine coon cat](https://www.petfinder.com/cat-breeds/maine-coon/)")
+st.sidebar.write("[Ragdoll cat](https://www.pumpkin.care/cat-breeds/ragdoll-cat/)")
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 def import_and_predict(image_data, model):
