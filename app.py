@@ -22,7 +22,7 @@ import numpy as np
 
 st.sidebar.header('About cat breeds')
 logo_url = "https://i.imgur.com/qVsr9bW.png"
-st.sidebar.image(logo_url, width=100)
+st.sidebar.image(logo_url, width=200)
 st.sidebar.write("[British shorthair cat](https://www.dailypaws.com/cats-kittens/cat-breeds/british-shorthair)")
 st.sidebar.write("[Scottish fold cat](https://en.wikipedia.org/wiki/Scottish_Fold)")
 st.sidebar.write("[Bengal cat](https://cattime.com/cat-breeds/bengal-cats)")
@@ -31,13 +31,6 @@ st.sidebar.write("[Ragdoll cat](https://www.pumpkin.care/cat-breeds/ragdoll-cat/
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 def import_and_predict(image_data, model):
-    
-        #size = (180,180)    
-        #image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
-        #image = np.asarray(image)
-        #img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        
-        #img_reshape = img[np.newaxis,...]
 
         img_array = tf.keras.utils.img_to_array(image_data)
         img_array = tf.expand_dims(img_array, 0)
@@ -54,10 +47,8 @@ else:
     image = image.resize((180,180))
     predictions = import_and_predict(image, model)
     score = tf.nn.softmax(predictions[0])
-    #st.write(predictions)
-    #st.write("SCORE:")
+   
     arr = np.argsort(score)[-3:][::-1]
-    #st.write(arr)
     
     class_names=['bengal', 'british', 'maine_coon', 'ragdoll', 'scottish_fold']
     st.header("Top 3 results:")
